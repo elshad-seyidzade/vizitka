@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,9 +68,9 @@
 <div class="wrap">
 
   <div class="lang">
-    <button data-l="az" class="active">AZ</button>
+    <button data-l="az">AZ</button>
     <button data-l="ru">RU</button>
-    <button data-l="en">EN</button>
+    <button data-l="en" class="active">EN</button>
   </div>
 
   <div class="profile">
@@ -161,9 +161,9 @@ function setLang(l){
   try{ localStorage.setItem("lang", l); }catch(e){}
 }
 document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.l)));
-let start="az";
-try{ start = localStorage.getItem("lang") || "az"; }catch(e){}
-setLang(T[start] ? start : "az");
+let start="en";
+try{ start = localStorage.getItem("lang") || "en"; }catch(e){}
+setLang(T[start] ? start : "en");
 </script>
 </body>
 </html>
