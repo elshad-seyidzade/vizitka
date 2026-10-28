@@ -158,11 +158,13 @@ function setLang(l){
   document.documentElement.lang = l;
   document.querySelectorAll("[data-i]").forEach(el=>{ el.textContent = T[l][el.dataset.i]; });
   document.querySelectorAll(".lang button").forEach(b=>b.classList.toggle("active", b.dataset.l===l));
-  try{ localStorage.setItem("lang", l); }catch(e){}
 }
-document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.l)));
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{
+  setLang(b.dataset.l);
+  try{ localStorage.setItem("cardLang", b.dataset.l); }catch(e){}
+}));
 let start="en";
-try{ start = localStorage.getItem("lang") || "en"; }catch(e){}
+try{ start = localStorage.getItem("cardLang") || "en"; }catch(e){}
 setLang(T[start] ? start : "en");
 </script>
 </body>
